@@ -17,6 +17,7 @@ services:
       OAUTH_CLIENT_ID: $OAUTH_CLIENT_ID
       OAUTH_CLIENT_SECRET: $OAUTH_CLIENT_SECRET
       REQUESTS_CA_BUNDLE: /etc/ssl/certs/ca-certificates.crt
+      SSL_CERT_FILE: /etc/ssl/certs/ca-certificates.crt
     volumes:
       - open-webui:/app/backend/data
     restart: unless-stopped
