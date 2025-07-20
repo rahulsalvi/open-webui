@@ -27,8 +27,3 @@ services:
 
 volumes:
   open-webui:
-
-
-secrets:
-  ts_authkey:
-    file: ./ts_authkey.txt
