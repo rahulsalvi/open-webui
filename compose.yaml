@@ -4,6 +4,7 @@ name: open-webui
 include:
   - ext/docker-compose-snippets/tailscale-caddy.yaml
   - ext/docker-compose-snippets/simple-reverse-proxy.yaml
+  - ext/docker-compose-snippets/volume-backup-defaults.yaml
 
 services:
   openwebui:
@@ -24,6 +25,13 @@ services:
     extends:
       file: ext/docker-compose-snippets/tailscale-app-base.yaml
       service: tailscale-app-base
+
+  backup:
+    volumes:
+      - open-webui:/backup:ro
+    extends:
+      file: ext/docker-compose-snippets/volume-backup.yaml
+      service: aws-backup-default
 
 volumes:
   open-webui:
