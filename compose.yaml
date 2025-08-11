@@ -1,4 +1,5 @@
 # vim: ft=yaml.docker-compose
+---
 name: open-webui
 
 include:
@@ -10,15 +11,14 @@ services:
   openwebui:
     image: ghcr.io/rahulsalvi/open-webui:latest
     environment:
-      WEBUI_URL: https://open-webui.ipn.rahulsalvi.com
+      WEBUI_URL: https://${COMPOSE_PROJECT_NAME}.ipn.rahulsalvi.com
       PORT: 8080
-      ENABLE_LOGIN_FORM: False
-      ENABLE_OAUTH_SIGNUP: True
+      ENABLE_LOGIN_FORM: false
+      ENABLE_OAUTH_SIGNUP: true
       OAUTH_PROVIDER_NAME: Pocket ID
       OPENID_PROVIDER_URL: https://pocket-id.ipn.rahulsalvi.com/.well-known/openid-configuration
-      OAUTH_CLIENT_ID: $OAUTH_CLIENT_ID
-      OAUTH_CLIENT_SECRET: $OAUTH_CLIENT_SECRET
-      SSL_CERT_FILE: /etc/ssl/certs/ca-certificates.crt
+      OAUTH_CLIENT_ID: $OIDC_CLIENT_ID
+      OAUTH_CLIENT_SECRET: $OIDC_CLIENT_SECRET
     volumes:
       - open-webui:/app/backend/data
     restart: unless-stopped
