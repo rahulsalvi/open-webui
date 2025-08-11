@@ -19,6 +19,7 @@ services:
       OPENID_PROVIDER_URL: https://pocket-id.ipn.rahulsalvi.com/.well-known/openid-configuration
       OAUTH_CLIENT_ID: $OIDC_CLIENT_ID
       OAUTH_CLIENT_SECRET: $OIDC_CLIENT_SECRET
+      SSL_CERT_FILE: /etc/ssl/certs/ca-certificates.crt
     volumes:
       - open-webui:/app/backend/data
     restart: unless-stopped
