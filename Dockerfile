@@ -1,4 +1,4 @@
-FROM ghcr.io/open-webui/open-webui:0.6.21
+FROM ghcr.io/open-webui/open-webui:0.6.22
 
 RUN apt-get update \
   && apt-get install -y ca-certificates \
